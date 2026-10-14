@@ -1,0 +1,62 @@
+{
+  "manifest_version": "0.3",
+  "name": "cicadas-local-mcp",
+  "display_name": "Cicadas local MCP",
+  "version": "0.1.0",
+  "description": "Experimental Cicadas local MCP. Customer API key required; authenticated production flows unverified.",
+  "long_description": "Local stdio bridge for Cicadas.ai, not a hosted remote connector. A valid customer API key is required. The supplied bundle exposes five read/quote tools and disables paid generation. Authenticated production functionality has not yet been verified with a real customer API key. Local contract tests and packaged MCP handshake/tool listing passed; no paid tests were performed. See README.md for scope and limitations.",
+  "author": {
+    "name": "Cicadas.ai",
+    "url": "https://cicadas.ai"
+  },
+  "homepage": "https://cicadas.ai",
+  "privacy_policies": [
+    "https://cicadas.ai/privacy-policy"
+  ],
+  "server": {
+    "type": "node",
+    "entry_point": "src/server.mjs",
+    "mcp_config": {
+      "command": "node",
+      "args": [
+        "${__dirname}/src/server.mjs"
+      ],
+      "env": {
+        "CICADAS_API_KEY": "${user_config.api_key}",
+        "CICADAS_ENABLE_GENERATION": "0"
+      }
+    }
+  },
+  "compatibility": {
+    "runtimes": {
+      "node": ">=22"
+    }
+  },
+  "user_config": {
+    "api_key": {
+      "type": "string",
+      "title": "Cicadas customer API key",
+      "description": "Obtain an owner-scoped key from Cicadas developer settings after API access is enabled. Never use a provider or administrator key.",
+      "sensitive": true,
+      "required": true
+    }
+  },
+  "tools": [
+    {
+      "name": "list_video_models"
+    },
+    {
+      "name": "get_credit_balance"
+    },
+    {
+      "name": "quote_video"
+    },
+    {
+      "name": "get_video_job"
+    },
+    {
+      "name": "get_video_request"
+    }
+  ],
+  "tools_generated": true
+}

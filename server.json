@@ -1,0 +1,38 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.kevinwowo/cicadas-local-mcp",
+  "title": "Cicadas local MCP",
+  "description": "Local Cicadas MCP for models, quotes and status. Authenticated API flows not yet verified.",
+  "version": "0.1.0",
+  "websiteUrl": "https://cicadas.ai",
+  "packages": [
+    {
+      "registryType": "mcpb",
+      "identifier": "https://github.com/kevinwowo/cicadas-local-mcp/releases/download/v0.1.0/cicadas-local-mcp-0.1.0.mcpb",
+      "fileSha256": "7653e9cea8ed864ba686ad229a76cda74cb865a55407bd96bf0265255fb31d2e",
+      "transport": {
+        "type": "stdio"
+      },
+      "environmentVariables": [
+        {
+          "name": "CICADAS_API_KEY",
+          "description": "Customer API key from Cicadas developer settings. Requires enabled customer API access.",
+          "isRequired": true,
+          "isSecret": true
+        }
+      ]
+    }
+  ],
+  "repository": {
+    "url": "https://github.com/kevinwowo/cicadas-local-mcp",
+    "source": "github"
+  },
+  "_meta": {
+    "io.modelcontextprotocol.registry/publisher-provided": {
+      "releaseStatus": "experimental",
+      "authenticatedProductionAcceptance": "not yet verified",
+      "validation": "Local contract tests and packaged stdio handshake/tool list passed.",
+      "paidTestsPerformed": false
+    }
+  }
+}
